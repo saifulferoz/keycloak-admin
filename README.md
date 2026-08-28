@@ -16,6 +16,13 @@ A first-class Symfony Bundle for integrating Keycloak Admin REST API into Symfon
 
 ---
 
+## Complete User Manual & Use Case Guide
+
+For detailed guides, controller examples, multi-tenant registry recipes, and CLI references, consult the **[Keycloak Admin Bundle User Manual (USER_MANUAL.md)](./USER_MANUAL.md)**.
+
+
+---
+
 ## Installation
 
 ```bash
