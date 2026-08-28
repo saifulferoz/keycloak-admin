@@ -1,5 +1,5 @@
 {
-    "name": "feroz/keycloak-admin-bundle",
+    "name": "saifulferoz/keycloak-admin-bundle",
     "description": "Symfony Bundle for Keycloak Admin REST API integration",
     "type": "symfony-bundle",
     "license": "MIT",
@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=8.2",
-        "feroz/keycloak-admin-client": "*@dev",
+        "saifulferoz/keycloak-admin-client": "*@dev",
         "symfony/config": "^6.4|^7.0|^8.0",
         "symfony/dependency-injection": "^6.4|^7.0|^8.0",
         "symfony/http-kernel": "^6.4|^7.0|^8.0",

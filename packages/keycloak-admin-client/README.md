@@ -26,7 +26,7 @@ Enterprise-grade, PSR-compliant, standalone PHP client for Keycloak Admin REST A
 ## Installation
 
 ```bash
-composer require feroz/keycloak-admin-client
+composer require saifulferoz/keycloak-admin-client
 ```
 
 ---

@@ -1,5 +1,5 @@
 {
-    "name": "feroz/keycloak-admin-client",
+    "name": "saifulferoz/keycloak-admin-client",
     "description": "Enterprise-grade standalone PHP client for Keycloak Admin REST API",
     "type": "library",
     "license": "MIT",
