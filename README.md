@@ -19,7 +19,7 @@ A first-class Symfony Bundle for integrating Keycloak Admin REST API into Symfon
 ## Installation
 
 ```bash
-composer require feroz/keycloak-admin-bundle
+composer require saifulferoz/keycloak-admin-bundle
 ```
 
 Register bundle in `config/bundles.php` (if not using Symfony Flex):
