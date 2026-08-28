@@ -1,0 +1,101 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+    {% set icon %}
+        {{ source('@KeycloakAdmin/Collector/keycloak_icon.svg', ignore_missing = true) }}
+        <span class="sf-toolbar-value">{{ collector.callCount }}</span>
+        <span class="sf-toolbar-label">calls</span>
+        {% if collector.callCount > 0 %}
+            <span class="sf-toolbar-info-piece-additional-detail">
+                <span class="sf-toolbar-label">in</span>
+                <span class="sf-toolbar-value">{{ collector.totalDuration }}</span>
+                <span class="sf-toolbar-label">ms</span>
+            </span>
+        {% endif %}
+    {% endset %}
+
+    {% set text %}
+        <div class="sf-toolbar-info-piece">
+            <b>Keycloak Calls</b>
+            <span>{{ collector.callCount }}</span>
+        </div>
+        <div class="sf-toolbar-info-piece">
+            <b>Total Time</b>
+            <span>{{ collector.totalDuration }} ms</span>
+        </div>
+        <div class="sf-toolbar-info-piece">
+            <b>Default Client</b>
+            <span>{{ collector.defaultClient }}</span>
+        </div>
+    {% endset %}
+
+    {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: profiler_url, status: collector.callCount > 0 ? '' : 'normal' }) }}
+{% endblock %}
+
+{% block menu %}
+    <span class="label">
+        <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-1-1l-2 2m-1-1l-2 2m-1-1l-2 2M3 21l18-18M7 7l-4 4 4 4 4-4-4-4z"/></svg>
+        </span>
+        <strong>Keycloak Admin</strong>
+        {% if collector.callCount > 0 %}
+            <span class="count">
+                <span>{{ collector.callCount }}</span>
+            </span>
+        {% endif %}
+    </span>
+{% endblock %}
+
+{% block panel %}
+    <h2>Keycloak Admin API Calls</h2>
+
+    <div class="metrics">
+        <div class="metric">
+            <span class="value">{{ collector.callCount }}</span>
+            <span class="label">Total API Calls</span>
+        </div>
+        <div class="metric">
+            <span class="value">{{ collector.totalDuration }} <small>ms</small></span>
+            <span class="label">Total Latency</span>
+        </div>
+        <div class="metric">
+            <span class="value">{{ collector.clients|length }}</span>
+            <span class="label">Configured Clients</span>
+        </div>
+    </div>
+
+    {% if collector.calls is empty %}
+        <div class="empty">
+            <p>No Keycloak Admin API calls were made during this request.</p>
+        </div>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Path / Endpoint</th>
+                    <th>HTTP Status</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for call in collector.calls %}
+                    <tr>
+                        <td><strong>{{ call.method }}</strong></td>
+                        <td><code>{{ call.path }}</code></td>
+                        <td>
+                            {% if call.status_code >= 200 and call.status_code < 300 %}
+                                <span class="badge badge-success">{{ call.status_code }}</span>
+                            {% elseif call.status_code == 0 %}
+                                <span class="badge badge-danger">Failed</span>
+                            {% else %}
+                                <span class="badge badge-warning">{{ call.status_code }}</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ call.duration }} ms</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
