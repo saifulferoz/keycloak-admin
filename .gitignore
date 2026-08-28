@@ -1,0 +1,9 @@
+/vendor/
+/packages/*/vendor/
+composer.phar
+.phpunit.result.cache
+.env.local
+.env.*.local
+.DS_Store
+.idea/
+.vscode/

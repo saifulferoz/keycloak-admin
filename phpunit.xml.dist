@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>packages/keycloak-admin-client/tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Bundle">
+            <directory>packages/keycloak-admin-bundle/tests</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>packages/keycloak-admin-client/src</directory>
+            <directory>packages/keycloak-admin-bundle/src</directory>
+        </include>
+    </source>
+</phpunit>

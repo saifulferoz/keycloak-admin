@@ -1,0 +1,62 @@
+{
+    "name": "feroz/keycloak-admin-monorepo",
+    "description": "Monorepo for Keycloak PHP Admin Client and Symfony Keycloak Admin Bundle",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Saiful Islam Feroz",
+            "email": "saiful.feroz@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "feroz/keycloak-admin-client": "*@dev",
+        "feroz/keycloak-admin-bundle": "*@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5|^11.0",
+        "guzzlehttp/guzzle": "^7.8",
+        "guzzlehttp/psr7": "^2.6",
+        "http-interop/http-factory-guzzle": "^1.2",
+        "symfony/cache": "^6.4|^7.0|^8.0",
+        "symfony/http-client": "^6.4|^7.0|^8.0",
+        "symfony/framework-bundle": "^6.4|^7.0|^8.0",
+        "symfony/yaml": "^6.4|^7.0|^8.0",
+        "symfony/console": "^6.4|^7.0|^8.0",
+        "symfony/web-profiler-bundle": "^6.4|^7.0|^8.0",
+        "twig/twig": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Feroz\\KeycloakAdmin\\": "packages/keycloak-admin-client/src/",
+            "Feroz\\KeycloakAdminBundle\\": "packages/keycloak-admin-bundle/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Feroz\\KeycloakAdmin\\Tests\\": "packages/keycloak-admin-client/tests/",
+            "Feroz\\KeycloakAdminBundle\\Tests\\": "packages/keycloak-admin-bundle/tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:unit": "phpunit --testsuite=Unit",
+        "test:bundle": "phpunit --testsuite=Bundle"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {}
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

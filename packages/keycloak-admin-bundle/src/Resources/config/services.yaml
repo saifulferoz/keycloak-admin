@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Feroz\KeycloakAdminBundle\Command\KeycloakPingCommand:
+        tags: ['console.command']
+
+    Feroz\KeycloakAdminBundle\Command\User\UserListCommand:
+        tags: ['console.command']
+
+    Feroz\KeycloakAdminBundle\Command\User\UserCreateCommand:
+        tags: ['console.command']
+
+    Feroz\KeycloakAdminBundle\Command\User\UserDeleteCommand:
+        tags: ['console.command']
