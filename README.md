@@ -11,6 +11,14 @@ Enterprise-grade architecture for managing Keycloak with PHP and Symfony.
 
 ---
 
+## 📖 Complete User Manual & Use Case Guide
+
+Read the exhaustive guide covering every endpoint, DTO, payload, and error handling pattern:
+👉 **[Complete User Manual (USER_MANUAL.md)](./USER_MANUAL.md)**
+
+
+---
+
 ## Quick Testing
 
 Run the test suites across all packages:

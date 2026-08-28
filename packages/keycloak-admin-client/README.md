@@ -23,6 +23,13 @@ Enterprise-grade, PSR-compliant, standalone PHP client for Keycloak Admin REST A
 
 ---
 
+## Complete User Manual & Use Case Guide
+
+For exhaustive examples, request payloads, query builder options, and domain exception patterns for every single Keycloak endpoint, read the **[Complete User Manual (USER_MANUAL.md)](./USER_MANUAL.md)**.
+
+
+---
+
 ## Installation
 
 ```bash
