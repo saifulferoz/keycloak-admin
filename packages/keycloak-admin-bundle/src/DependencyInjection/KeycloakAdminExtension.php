@@ -96,17 +96,17 @@ final class KeycloakAdminExtension extends Extension
             ]);
             $container->setDefinition($configDefId, $configDef);
 
-            // 3. HTTP Client Definition
+            // 3. HTTP Client Definition (Symfony HttpClient native integration)
             $httpId = sprintf('keycloak_admin.http_client.%s', $name);
             if ($config['http_client'] !== null) {
-                // If custom PSR-18 / Symfony HTTP client service provided
-                $httpDef = new Definition(Psr18HttpClient::class, [
+                $httpDef = new Definition(\Feroz\KeycloakAdminBundle\Http\SymfonyHttpClient::class, [
                     new Reference($configDefId),
                     new Reference($config['http_client']),
                 ]);
             } else {
-                $httpDef = new Definition(Psr18HttpClient::class, [
+                $httpDef = new Definition(\Feroz\KeycloakAdminBundle\Http\SymfonyHttpClient::class, [
                     new Reference($configDefId),
+                    new Reference('http_client', ContainerBuilder::NULL_ON_INVALID_REFERENCE),
                 ]);
             }
             $container->setDefinition($httpId, $httpDef);
