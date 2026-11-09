@@ -12,7 +12,7 @@ final class KeycloakAdminBundle extends Bundle
 {
     public function getPath(): string
     {
-        return \dirname(__DIR__);
+        return __DIR__;
     }
 
     public function getContainerExtension(): ?ExtensionInterface
